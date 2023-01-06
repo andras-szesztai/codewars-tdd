@@ -8,4 +8,7 @@ describe('humanReadable', () => {
     expect(humanReadable(86399)).toEqual("23:59:59")
     expect(humanReadable(359999)).toEqual("99:59:59")
   })
+  it('returns an empty string if the input is negative', () => {
+      expect(humanReadable(-1)).toEqual('')
+  })
 })

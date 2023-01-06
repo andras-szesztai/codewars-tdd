@@ -5,7 +5,9 @@ function pad (n: number): string {
 }
 
 export function humanReadable(seconds:number):string {
-  const minutes = Math.floor(seconds / 60)
-  const hours =  Math.floor(minutes / 60)
-  return `${pad(Math.floor(hours))}:${pad(minutes % 60)}:${pad(seconds % 60)}`
+  if (seconds < 0) return ''
+  const hours = Math.floor(seconds / 3600)
+  const minutes = Math.floor((seconds % 3600) / 60)
+  const secs = seconds % 60
+  return `${pad(hours)}:${pad(minutes)}:${pad(secs)}`
 }
